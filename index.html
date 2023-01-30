@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme: dark;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,">
+    <title>Year Progress</title>
+</head>
+
+<body style="display: flex; justify-content: center; text-align: center;">
+    <div style="position: absolute; top: 20%">
+        <h1 style="font-size: 3em;">Year Progress</h1>
+        <div id="progress" style="font-size: 1.5em;"></div>
+    </div>
+    <div style="font-size: 9pt; position: absolute; bottom: 0; margin-bottom: 1em;">Made by: <a
+            href="https://github.com/IvanVnucec">Ivan Vnučec</a>, 2023</div>.
+
+    <script>
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const startOfYear = new Date(currentYear, 0, 1, 0, 0, 0, 0);
+        const endOfYear = new Date(currentYear, 11, 31, 23, 59, 59, 999);
+        const totalTime = endOfYear.getTime() - startOfYear.getTime();
+        const timeElapsed = currentDate.getTime() - startOfYear.getTime();
+        const percentRemaining = (timeElapsed / totalTime) * 100.0;
+
+        document.getElementById("progress").innerHTML = percentRemaining.toFixed(2) + ' %';
+    </script>
+</body>
+
+</html>
