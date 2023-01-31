@@ -18,7 +18,7 @@
 
     <script>
         updateProgress();
-        setInterval(updateProgress, 500);
+        setInterval(updateProgress, 1000 * 60);
 
         function updateProgress() {
             const currentDate = new Date();
@@ -28,7 +28,7 @@
             const totalTime = endOfYear.getTime() - startOfYear.getTime();
             const timeElapsed = currentDate.getTime() - startOfYear.getTime();
             const percentRemaining = (timeElapsed / totalTime) * 100.0;
-            const percentFormatted = percentRemaining.toFixed(5);
+            const percentFormatted = percentRemaining.toFixed(2);
 
             document.getElementById("title").innerHTML = percentFormatted + ' % Year Progress';
             document.getElementById("progress").innerHTML = percentFormatted + ' %';
